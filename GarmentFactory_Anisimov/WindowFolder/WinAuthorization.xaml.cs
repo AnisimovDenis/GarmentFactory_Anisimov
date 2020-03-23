@@ -103,9 +103,9 @@ namespace GarmentFactory_Anisimov
                         }
                     }
                 }
-                catch (SqlException sqlEx)
+                catch (Exception ex)
                 {
-                    ClassMessageBox.MessageBoxError(sqlEx.Message);
+                    ClassMessageBox.MessageBoxError(ex.Message);
                 }
                 finally
                 {
