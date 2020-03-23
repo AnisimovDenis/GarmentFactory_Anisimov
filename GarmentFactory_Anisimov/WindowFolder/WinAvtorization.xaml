@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GarmentFactory_Anisimov"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Авторизация" Height="350" Width="530"
+        Icon="/GarmentFactory_Anisimov;component/ResourceFolder/logo-01.jpg"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -61,7 +64,7 @@
                      Columns="3">
             <Button x:Name="btnEnter"
                     Content="Войти"
-                    Style="{DynamicResource ButtonStyle}"/>
+                    Style="{DynamicResource ButtonStyle}" Click="btnEnter_Click"/>
             <Button x:Name="btnReg"
                     Content="Зарегистрироваться"
                     Style="{DynamicResource ButtonStyle}"/>

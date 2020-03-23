@@ -13,5 +13,8 @@ namespace GarmentFactory_Anisimov
     /// </summary>
     public partial class App : Application
     {
+        public static string Login { get; set; }
+        public static string Password { get; set; }
+        public static string Role { get; set; }
     }
 }
