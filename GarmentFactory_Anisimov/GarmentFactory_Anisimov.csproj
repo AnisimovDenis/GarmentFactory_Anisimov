@@ -55,11 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinCustomer.xaml.cs">
+      <DependentUpon>WinCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinDirectorate.xaml.cs">
+      <DependentUpon>WinDirectorate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinManager.xaml.cs">
+      <DependentUpon>WinManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinStorekeeper.xaml.cs">
+      <DependentUpon>WinStorekeeper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WinRegistration.xaml.cs">
+      <DependentUpon>WinRegistration.xaml</DependentUpon>
+    </Compile>
     <Page Include="ResourceFolder\MainDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowFolder\WinAvtorization.xaml">
+    <Page Include="WindowFolder\WinAuthorization.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -73,10 +88,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GarmentFactoryDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="WindowFolder\WinAvtorization.xaml.cs">
-      <DependentUpon>WinAvtorization.xaml</DependentUpon>
+    <Compile Include="WindowFolder\WinAuthorization.xaml.cs">
+      <DependentUpon>WinAuthorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowFolder\WindowRoleFolder\WinCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinDirectorate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinStorekeeper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WinRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

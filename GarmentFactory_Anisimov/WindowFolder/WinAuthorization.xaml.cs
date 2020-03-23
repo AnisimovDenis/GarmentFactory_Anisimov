@@ -1,4 +1,6 @@
 ﻿using GarmentFactory_Anisimov.ClassFolder;
+using GarmentFactory_Anisimov.WindowFolder;
+using GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,9 +20,9 @@ using System.Windows.Shapes;
 namespace GarmentFactory_Anisimov
 {
     /// <summary>
-    /// Логика взаимодействия для WinAvtorization.xaml
+    /// Логика взаимодействия для WinAuthorization.xaml
     /// </summary>
-    public partial class WinAvtorization : Window
+    public partial class WinAuthorization : Window
     {
         readonly SqlConnection connection = 
             new SqlConnection(@"Data Source=DENIS-PC;
@@ -29,13 +31,19 @@ namespace GarmentFactory_Anisimov
         SqlCommand cmd;
         SqlDataReader reader;
 
-        public WinAvtorization()
+        public WinAuthorization()
         {
             InitializeComponent();
 
             btnExit.Click += delegate
             {
                 ClassMessageBox.MessageBoxQuestionExit();
+            };
+
+            btnReg.Click += delegate
+            {
+                WinRegistration winRegistration = new WinRegistration();
+                winRegistration.ShowDialog();
             };
         }
 
@@ -56,14 +64,16 @@ namespace GarmentFactory_Anisimov
                 try
                 {
                     connection.Open();
-                    cmd = new SqlCommand("SELECT [RoleId], [Password] FROM [User] " +
+                    cmd = new SqlCommand("SELECT [RoleId], " +
+                        "[Password] FROM [User] " +
                         $"WHERE [Login] = '{tbLogin.Text}'", connection);
                     reader = cmd.ExecuteReader();
                     reader.Read();
 
                     if (reader[1].ToString() != pbPassword.Password)
                     {
-                        ClassMessageBox.MessageBoxError("Не верный логин или пароль");
+                        ClassMessageBox.MessageBoxError("Не верный " +
+                            "логин или пароль");
                         tbLogin.Focus();
                     }
                     else
@@ -75,12 +85,20 @@ namespace GarmentFactory_Anisimov
                         switch (App.Role)
                         {
                             case "1":
+                                WinCustomer winCustomer = new WinCustomer();
+                                winCustomer.ShowDialog();
                                 break;
                             case "2":
+                                WinManager winManager = new WinManager();
+                                winManager.ShowDialog();
                                 break;
                             case "3":
+                                WinStorekeeper winStorekeeper = new WinStorekeeper();
+                                winStorekeeper.ShowDialog();
                                 break;
                             case "4":
+                                WinDirectorate winDirectorate = new WinDirectorate();
+                                winDirectorate.ShowDialog();
                                 break;
                         }
                     }
