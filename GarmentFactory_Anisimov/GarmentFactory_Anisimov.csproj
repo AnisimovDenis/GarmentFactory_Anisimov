@@ -55,11 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinCustomer.xaml.cs">
+      <DependentUpon>WinCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinDirectorate.xaml.cs">
+      <DependentUpon>WinDirectorate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinManager.xaml.cs">
+      <DependentUpon>WinManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinStorekeeper.xaml.cs">
+      <DependentUpon>WinStorekeeper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WinRegistration.xaml.cs">
+      <DependentUpon>WinRegistration.xaml</DependentUpon>
+    </Compile>
     <Page Include="ResourceFolder\MainDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowFolder\WinAvtorization.xaml">
+    <Page Include="WindowFolder\WinAuthorization.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -67,10 +82,36 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WindowFolder\WinAvtorization.xaml.cs">
-      <DependentUpon>WinAvtorization.xaml</DependentUpon>
+    <Compile Include="ClassFolder\ClassMessageBox.cs" />
+    <Compile Include="GarmentFactoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GarmentFactoryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WinAuthorization.xaml.cs">
+      <DependentUpon>WinAuthorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowFolder\WindowRoleFolder\WinCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinDirectorate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinStorekeeper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WinRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -90,6 +131,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="GarmentFactoryDataSet.xsc">
+      <DependentUpon>GarmentFactoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GarmentFactoryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GarmentFactoryDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GarmentFactoryDataSet.xss">
+      <DependentUpon>GarmentFactoryDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,6 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\logo-01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\logo-02.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GarmentFactory_Anisimov
+namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
 {
     /// <summary>
-    /// Логика взаимодействия для WinAvtorization.xaml
+    /// Логика взаимодействия для WinCustomer.xaml
     /// </summary>
-    public partial class WinAvtorization : Window
+    public partial class WinCustomer : Window
     {
-        public WinAvtorization()
+        public WinCustomer()
         {
             InitializeComponent();
         }

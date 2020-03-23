@@ -1,0 +1,76 @@
+﻿<Window x:Class="GarmentFactory_Anisimov.WinAuthorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GarmentFactory_Anisimov"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="350" Width="530"
+        Icon="/GarmentFactory_Anisimov;component/ResourceFolder/logo-01.jpg"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="imgLogo"
+                   Style="{DynamicResource LogoStyle}"/>
+            <Label x:Name="lblHeadLine"
+                   Content="Авторизация"
+                   Style="{DynamicResource LabelHeadLineStyle}"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lblLogin"
+                   Content="Логин"
+                   Style="{DynamicResource LabelStyle}"/>
+            <TextBox x:Name="tbLogin"
+                     Style="{DynamicResource TextBoxStyle}"
+                     Grid.Column="1"/>
+
+            <Label x:Name="lblPassword"
+                   Content="Пароль"
+                   Grid.Row="1"
+                   Style="{DynamicResource LabelStyle}"/>
+            <PasswordBox x:Name="pbPassword"
+                         Style="{DynamicResource PasswordBoxStyle}"
+                         Grid.Column="1"
+                         Grid.Row="1"/>
+        </Grid>
+
+        <UniformGrid Grid.Row="2"
+                     Rows="0"
+                     Columns="3">
+            <Button x:Name="btnEnter"
+                    Content="Войти"
+                    Style="{DynamicResource ButtonStyle}" Click="btnEnter_Click"/>
+            <Button x:Name="btnReg"
+                    Content="Зарегистрироваться"
+                    Style="{DynamicResource ButtonStyle}"/>
+            <Button x:Name="btnExit"
+                    Content="Выйти"
+                    Style="{DynamicResource ButtonStyle}"/>
+        </UniformGrid>
+    </Grid>
+</Window>
