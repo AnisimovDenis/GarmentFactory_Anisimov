@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClassFolder\ClassMessageBox.cs" />
     <Compile Include="WindowFolder\WinAvtorization.xaml.cs">
       <DependentUpon>WinAvtorization.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -97,6 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\logo-01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\logo-02.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

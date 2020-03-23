@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:GarmentFactory_Anisimov"
              StartupUri="WindowFolder/WinAvtorization.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceFolder/MainDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
