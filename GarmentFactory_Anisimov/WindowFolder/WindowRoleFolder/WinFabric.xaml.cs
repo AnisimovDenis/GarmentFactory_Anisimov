@@ -16,13 +16,17 @@ using System.Windows.Shapes;
 namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
 {
     /// <summary>
-    /// Логика взаимодействия для WinManager.xaml
+    /// Логика взаимодействия для WinFabric.xaml
     /// </summary>
-    public partial class WinManager : Window
+    public partial class WinFabric : Window
     {
-        public WinManager()
+        ClassDataGrid classDataGrid;
+        public WinFabric()
         {
             InitializeComponent();
+
+            classDataGrid = new ClassDataGrid(dgFabric);
+            classDataGrid.LoaderData("SELECT * FROM dbo.[Fabric]");
 
             btnExit.Click += delegate
             {

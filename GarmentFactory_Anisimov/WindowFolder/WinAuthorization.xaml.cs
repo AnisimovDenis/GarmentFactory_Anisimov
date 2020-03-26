@@ -2,20 +2,8 @@
 using GarmentFactory_Anisimov.WindowFolder;
 using GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GarmentFactory_Anisimov
 {
@@ -43,7 +31,8 @@ namespace GarmentFactory_Anisimov
             btnReg.Click += delegate
             {
                 WinRegistration winRegistration = new WinRegistration();
-                winRegistration.ShowDialog();
+                winRegistration.Show();
+                this.Close();
             };
         }
 
@@ -86,19 +75,23 @@ namespace GarmentFactory_Anisimov
                         {
                             case "1":
                                 WinCustomer winCustomer = new WinCustomer();
-                                winCustomer.ShowDialog();
+                                winCustomer.Show();
+                                this.Close();
                                 break;
                             case "2":
                                 WinManager winManager = new WinManager();
-                                winManager.ShowDialog();
+                                winManager.Show();
+                                this.Close();
                                 break;
                             case "3":
                                 WinStorekeeper winStorekeeper = new WinStorekeeper();
-                                winStorekeeper.ShowDialog();
+                                winStorekeeper.Show();
+                                this.Close();
                                 break;
                             case "4":
                                 WinDirectorate winDirectorate = new WinDirectorate();
-                                winDirectorate.ShowDialog();
+                                winDirectorate.Show();
+                                this.Close();
                                 break;
                         }
                     }

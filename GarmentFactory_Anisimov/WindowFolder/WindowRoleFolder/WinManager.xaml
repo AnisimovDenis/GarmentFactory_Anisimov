@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder"
         mc:Ignorable="d"
-        Title="WinManager" Height="450" Width="800">
+        Title="Менеджер" Height="350" Width="530"
+        Icon="/GarmentFactory_Anisimov;component/ResourceFolder/logo-01.jpg"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="imgLogo"
+                   Style="{DynamicResource LogoStyle}"/>
+            <Label x:Name="lblHeadLine"
+                   Content="Менеджер"
+                   Style="{DynamicResource LabelHeadLineStyle}"
+                   Grid.ColumnSpan="3"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+            <Button x:Name="btnExit"
+                    Grid.Column="3"
+                    Width="50"
+                    Content="Выход"
+                    Style="{DynamicResource ButtonStyle}"
+                    VerticalAlignment="Top"/>
+        </Grid>
+
+        <UniformGrid Grid.Row="1"
+                     Rows="0"
+                     Columns="1">
+            <Button x:Name="btnProduct"
+                    Content="Изделия"
+                    Style="{DynamicResource ButtonStyle}"/>
+        </UniformGrid>
     </Grid>
 </Window>

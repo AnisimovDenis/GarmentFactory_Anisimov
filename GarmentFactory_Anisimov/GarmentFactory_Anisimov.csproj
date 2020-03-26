@@ -55,11 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassFolder\ClassDataGrid.cs" />
     <Compile Include="WindowFolder\WindowRoleFolder\WinCustomer.xaml.cs">
       <DependentUpon>WinCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowFolder\WindowRoleFolder\WinDirectorate.xaml.cs">
       <DependentUpon>WinDirectorate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinFabric.xaml.cs">
+      <DependentUpon>WinFabric.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowFolder\WindowRoleFolder\WinManager.xaml.cs">
       <DependentUpon>WinManager.xaml</DependentUpon>
@@ -97,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowFolder\WindowRoleFolder\WinDirectorate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinFabric.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
