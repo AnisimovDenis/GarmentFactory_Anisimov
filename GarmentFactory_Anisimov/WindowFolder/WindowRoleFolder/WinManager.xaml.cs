@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GarmentFactory_Anisimov.ClassFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
         public WinManager()
         {
             InitializeComponent();
+
+            btnExit.Click += delegate
+            {
+                ClassMessageBox.MessageBoxQuestionExit();
+            };
         }
     }
 }

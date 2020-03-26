@@ -26,6 +26,11 @@ namespace GarmentFactory_Anisimov.WindowFolder
                 winAuthorization.Show();
                 this.Close();
             };
+
+            btnExit.Click += delegate
+            {
+                ClassMessageBox.MessageBoxQuestionExit();
+            };
         }
 
         private void btnReg_Click(object sender, RoutedEventArgs e)

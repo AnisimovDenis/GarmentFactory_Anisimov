@@ -27,6 +27,11 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
 
             classDataGrid = new ClassDataGrid(dgFabric);
             classDataGrid.LoaderData("SELECT * FROM dbo.[Fabric]");
+
+            btnExit.Click += delegate
+            {
+                ClassMessageBox.MessageBoxQuestionExit();
+            };
         }
     }
 }

@@ -15,11 +15,11 @@
             <RowDefinition Height="auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
             <Image x:Name="imgLogo"
@@ -27,9 +27,15 @@
             <Label x:Name="lblHeadLine"
                    Content="Регистрация"
                    Style="{DynamicResource LabelHeadLineStyle}"
-                   Grid.ColumnSpan="2"
+                   Grid.ColumnSpan="3"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
+            <Button x:Name="btnExit"
+                    Grid.Column="3"
+                    Width="50"
+                    Content="Выход"
+                    Style="{DynamicResource ButtonStyle}"
+                    VerticalAlignment="Top"/>
         </Grid>
 
         <Grid Grid.Row="1">
