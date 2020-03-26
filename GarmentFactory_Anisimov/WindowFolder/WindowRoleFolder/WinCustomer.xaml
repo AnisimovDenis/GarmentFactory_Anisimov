@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder"
         mc:Ignorable="d"
-        Title="WinCustomer" Height="450" Width="800">
+        Title="Заказчик" Height="350" Width="530"
+        Icon="/GarmentFactory_Anisimov;component/ResourceFolder/logo-01.jpg"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="imgLogo"
+                   Style="{DynamicResource LogoStyle}"/>
+            <Label x:Name="lblHeadLine"
+                   Content="Заказчик"
+                   Style="{DynamicResource LabelHeadLineStyle}"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+        </Grid>
+
+
+        <UniformGrid Grid.Row="1"
+                     Rows="0"
+                     Columns="2">
+            
+        </UniformGrid>
     </Grid>
 </Window>

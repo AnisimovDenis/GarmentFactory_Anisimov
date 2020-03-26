@@ -75,19 +75,23 @@ namespace GarmentFactory_Anisimov
                         {
                             case "1":
                                 WinCustomer winCustomer = new WinCustomer();
-                                winCustomer.ShowDialog();
+                                winCustomer.Show();
+                                this.Close();
                                 break;
                             case "2":
                                 WinManager winManager = new WinManager();
-                                winManager.ShowDialog();
+                                winManager.Show();
+                                this.Close();
                                 break;
                             case "3":
                                 WinStorekeeper winStorekeeper = new WinStorekeeper();
-                                winStorekeeper.ShowDialog();
+                                winStorekeeper.Show();
+                                this.Close();
                                 break;
                             case "4":
                                 WinDirectorate winDirectorate = new WinDirectorate();
-                                winDirectorate.ShowDialog();
+                                winDirectorate.Show();
+                                this.Close();
                                 break;
                         }
                     }
