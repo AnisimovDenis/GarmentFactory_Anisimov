@@ -1,6 +1,7 @@
 ﻿using GarmentFactory_Anisimov.ClassFolder;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,11 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
     /// </summary>
     public partial class WinFabric : Window
     {
+        readonly SqlConnection connection =
+            new SqlConnection(@"Data Source=DENIS-PC;
+                                Initial Catalog=GarmentFactory;
+                                Integrated Security=True");
+        SqlCommand cmd;
         ClassDataGrid classDataGrid;
         public WinFabric()
         {
@@ -31,6 +37,11 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
             btnExit.Click += delegate
             {
                 ClassMessageBox.MessageBoxQuestionExit();
+            };
+
+            btnRefresh.Click += delegate
+            {
+                classDataGrid.LoaderData("SELECT * FROM dbo.[Fabric]");
             };
         }
 
@@ -52,6 +63,56 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
         {
             WinFabricAdd winFabricAdd = new WinFabricAdd();
             winFabricAdd.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            App.Id = classDataGrid.Selecter();
+            if (App.Id != null)
+            {
+                WinFabricEdit winFabricEdit = new WinFabricEdit();
+                winFabricEdit.ShowDialog();
+            }
+            else
+            {
+                ClassMessageBox.MessageBoxInfo("Выберите данные для редактирования");   
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            App.Id = classDataGrid.Selecter();
+            if (App.Id != null)
+            {
+                MessageBoxResult message = 
+                        MessageBox.Show("Вы уверены, что хотите удалить?", "Уведмоление",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                switch (message)
+                {
+                    case MessageBoxResult.Yes:
+                        try
+                        {
+                            connection.Open();
+                            cmd = new SqlCommand("DELETE FROM [Fabric] " +
+                                $"WHERE [IdFabric] = '{App.Id}'", connection);
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            ClassMessageBox.MessageBoxError(ex.Message);
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
+                    break;
+                }
+            }
+            else
+            {
+                ClassMessageBox.MessageBoxInfo("Выберите данные для удаления");
+            }
         }
     }
 }

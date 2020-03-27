@@ -17,22 +17,51 @@ using System.Windows.Shapes;
 namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
 {
     /// <summary>
-    /// Логика взаимодействия для WinFabricAdd.xaml
+    /// Логика взаимодействия для WinFabricEdit.xaml
     /// </summary>
-    public partial class WinFabricAdd : Window
+    public partial class WinFabricEdit : Window
     {
         readonly SqlConnection connection =
             new SqlConnection(@"Data Source=DENIS-PC;
                                 Initial Catalog=GarmentFactory;
                                 Integrated Security=True");
         SqlCommand cmd;
-
-        public WinFabricAdd()
+        SqlDataReader reader;
+        public WinFabricEdit()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                cmd = new SqlCommand("SELECT ArticleNumber, Name, Color, Drawing, " +
+                        "Composition, Width, Length, Price FROM [Fabric] " +
+                        $"WHERE IdFabric = {App.Id}", connection);
+                reader = cmd.ExecuteReader();
+                reader.Read();
+                tbArticle.Text = reader[0].ToString();
+                tbName.Text = reader[1].ToString();
+                tbColor.Text = reader[2].ToString();
+                tbDrawing.Text = reader[3].ToString();
+                tbComposition.Text = reader[4].ToString();
+                tbWidth.Text = reader[5].ToString();
+                tbLength.Text = reader[6].ToString();
+                tbPrice.Text = reader[7].ToString();
+            }
+            catch (Exception ex)
+            {
+                ClassMessageBox.MessageBoxError(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(tbArticle.Text))
             {
@@ -79,12 +108,16 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
                 try
                 {
                     connection.Open();
-                    cmd = new SqlCommand("INSERT INTO [Fabric] " +
-                        "(ArticleNumber, Name, Color, Drawing, " +
-                        "Composition, Width, Length, Price)" +
-                        "VALUES (@ArticleNumber, @Name," +
-                        " @Color, @Drawing, @Composition, " +
-                        "@Width, @Length, @Price)", connection);
+                    cmd = new SqlCommand("UPDATE [Fabric] " +
+                        "SET ArticleNumber = @ArticleNumber, " +
+                        "Name = @Name," +
+                        "Color = @Color," +
+                        "Drawing = @Drawing," +
+                        "Composition = @Composition, " +
+                        "Width = @Width," +
+                        "Length = @Length," +
+                        "Price = @Price " +
+                        $"WHERE [IdFabric] = {App.Id}", connection);
                     cmd.Parameters.AddWithValue("ArticleNumber", tbArticle.Text);
                     cmd.Parameters.AddWithValue("Name", tbName.Text);
                     cmd.Parameters.AddWithValue("Color", tbColor.Text);
@@ -92,7 +125,7 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
                     cmd.Parameters.AddWithValue("Composition", tbComposition.Text);
                     cmd.Parameters.AddWithValue("Width", tbWidth.Text);
                     cmd.Parameters.AddWithValue("Length", tbLength.Text);
-                    cmd.Parameters.AddWithValue("Price", tbPrice.Text);
+                    cmd.Parameters.AddWithValue("Price", double.Parse(tbPrice.Text));
                     cmd.ExecuteNonQuery();
                     ClassMessageBox.MessageBoxInfo("Вы успешно добавили товар");
                 }
