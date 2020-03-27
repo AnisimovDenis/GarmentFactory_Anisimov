@@ -114,11 +114,11 @@
                      Style="{DynamicResource TextBoxStyle}"
                      Grid.Row="6" Grid.Column="1"/>
 
-            <Label x:Name="lblHeight"
+            <Label x:Name="lblLength"
                    Content="Длина"
                    Style="{DynamicResource LabelStyle}"
                    Grid.Row="7"/>
-            <TextBox x:Name="tbHeight"
+            <TextBox x:Name="tbLength"
                      Style="{DynamicResource TextBoxStyle}"
                      Grid.Row="7" Grid.Column="1"/>
 
