@@ -65,6 +65,9 @@
     <Compile Include="WindowFolder\WindowRoleFolder\WinFabric.xaml.cs">
       <DependentUpon>WinFabric.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowFolder\WindowRoleFolder\WinFabricAdd.xaml.cs">
+      <DependentUpon>WinFabricAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\WindowRoleFolder\WinManager.xaml.cs">
       <DependentUpon>WinManager.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowFolder\WindowRoleFolder\WinFabric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\WindowRoleFolder\WinFabricAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

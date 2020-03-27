@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder"
         mc:Ignorable="d"
-        Title="Ткани" Height="700" Width="1200"
+        Title="Ткани" Height="900" Width="1200"
         Icon="/GarmentFactory_Anisimov;component/ResourceFolder/logo-01.jpg"
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen">
@@ -39,32 +39,64 @@
                     VerticalAlignment="Top"/>
         </Grid>
 
-        <DataGrid x:Name="dgFabric"
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="cbColumn"
+                      Style="{DynamicResource ComboBoxStyle}">
+                <ComboBoxItem Content="Артикул"/>
+                <ComboBoxItem Content="Наименование"
+                              IsSelected="True"/>
+            </ComboBox>
+
+            <TextBox x:Name="tbSearch"
+                     Style="{DynamicResource TextBoxStyle}"
+                     Grid.Column="1" TextChanged="tbSearch_TextChanged"/>
+
+            <DataGrid x:Name="dgFabric"
                   Style="{DynamicResource DataGridStyle}"
-                  Grid.Row="1">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Артикул"
+                  Grid.Row="1" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Артикул"
                                     Binding="{Binding ArticleNumber}"/>
-                <DataGridTextColumn Header="Наименование"
+                    <DataGridTextColumn Header="Наименование"
                                     Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Цвет"
+                    <DataGridTextColumn Header="Цвет"
                                     Binding="{Binding Color}"/>
-                <DataGridTextColumn Header="Узор"
+                    <DataGridTextColumn Header="Узор"
                                     Binding="{Binding Drawing}"/>
-                <DataGridTextColumn Header="Картинка"
-                                    Binding="{Binding Image, TargetNullValue=Нет}"/>
-                <DataGridTextColumn Header="Композиция"
+                    <DataGridTextColumn Header="Картинка"
+                                    Binding="{Binding Image,
+                                                TargetNullValue=Нет}"/>
+                    <DataGridTextColumn Header="Композиция"
                                     Binding="{Binding Composition}"/>
-                <DataGridTextColumn Header="Ширина"
+                    <DataGridTextColumn Header="Ширина"
                                     Binding="{Binding Width}"/>
-                <DataGridTextColumn Header="Длина"
+                    <DataGridTextColumn Header="Длина"
                                     Binding="{Binding Length}"/>
-                <DataGridTextColumn Header="Цена"
+                    <DataGridTextColumn Header="Цена"
                                     Binding="{Binding Price}"
                                     Width="*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        
-        
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <UniformGrid Grid.Row="2"
+                     Rows="0"
+                     Columns="2">
+            <Button x:Name="btnAdd"
+                    Content="Добавить ткань"
+                    Style="{DynamicResource ButtonStyle}" Click="btnAdd_Click"/>
+            <Button x:Name="btnEdit"
+                    Content="Редактировать ткань"
+                    Style="{DynamicResource ButtonStyle}"/>
+        </UniformGrid>
     </Grid>
 </Window>

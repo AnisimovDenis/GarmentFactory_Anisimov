@@ -33,5 +33,25 @@ namespace GarmentFactory_Anisimov.WindowFolder.WindowRoleFolder
                 ClassMessageBox.MessageBoxQuestionExit();
             };
         }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (cbColumn.Text == "Наименование")
+            {
+                classDataGrid.LoaderData($"SELECT * FROM dbo.[Fabric] " +
+                $"WHERE Name LIKE '{tbSearch.Text}%'");
+            }
+            else
+            {
+                classDataGrid.LoaderData($"SELECT * FROM dbo.[Fabric] " +
+                $"WHERE ArticleNumber LIKE '{tbSearch.Text}%'");
+            }
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            WinFabricAdd winFabricAdd = new WinFabricAdd();
+            winFabricAdd.ShowDialog();
+        }
     }
 }

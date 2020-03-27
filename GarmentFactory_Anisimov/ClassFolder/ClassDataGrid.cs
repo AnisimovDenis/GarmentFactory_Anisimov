@@ -38,5 +38,20 @@ namespace GarmentFactory_Anisimov.ClassFolder
                 ClassMessageBox.MessageBoxError(ex.Message);
             }
         }
+
+        public string Selecter()
+        {
+            string result = null;
+            if (dataGrid.SelectedItem != null)
+            {
+                DataRowView dataRowView = dataGrid.SelectedItem as DataRowView;
+                if (dataRowView != null)
+                {
+                    DataRow dataRow = (DataRow)dataRowView.Row;
+                    result = dataRow.ItemArray[0].ToString();
+                }
+            }
+            return result;
+        }
     }
 }
