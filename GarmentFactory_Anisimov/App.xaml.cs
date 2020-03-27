@@ -16,5 +16,7 @@ namespace GarmentFactory_Anisimov
         public static string Login { get; set; }
         public static string Password { get; set; }
         public static string Role { get; set; }
+
+        public static string Id { get; set; }
     }
 }
